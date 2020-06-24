@@ -3,13 +3,12 @@
 import os
 import pymongo
 
-MONGO_URI = os.environ.get(
-    'MONGODB_URI', 'mongodb://localhost/fiverr')
+MONGO_URI = os.environ.get("MONGO_URI", 'mongodb://localhost/prediction')
 
 
 RESOURCE_METHODS = ['GET', 'POST']
 
-ITEM_METHODS = ['GET', 'PATCH', 'DELETE']
+ITEM_METHODS = ['GET', 'DELETE']
 
 CACHE_CONTROL = 'max-age=20'
 CACHE_EXPIRES = 20
