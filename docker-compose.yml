@@ -5,12 +5,23 @@ services:
     image: sales-predictor:latest
     ports:
       - 5000:5000
-    build: .
     depends_on: 
         - predictor-db
+    environment: 
+      - MONGO_URI=mongodb://predictor-db/predictions
+    build: .
+  
+  portainer-predictor:
+    image: portainer/portainer:latest
+    container_name: portainer-predictor
+    ports:
+      - 9000:9000
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - /var/run/docker.sock:/var/run/docker.sock:ro
 
   predictor-db:
     image: mongo:3.7
     container_name: predictor-db
     ports:
-      - 27017:27017
+      - 27017
