@@ -20,13 +20,13 @@ X_HEADERS = 'Content-Type,Authorization'
 predictions = {
     'item_title': 'suggestions',
     'schema': {
-        'bsr': {
-            'type': 'int',
+        'bestseller_rank': {
+            'type': 'integer',
             'required': True
         },
 
         'sales': {
-            'type': 'int'
+            'type': 'integer'
         }
     }}
 
