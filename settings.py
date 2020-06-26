@@ -17,20 +17,23 @@ X_DOMAINS = '*'
 X_HEADERS = 'Content-Type,Authorization'
 
 
-predictions = {
-    'item_title': 'suggestions',
+estimations = {
+    'item_title': 'estimations',
     'schema': {
         'bestseller_rank': {
             'type': 'integer',
             'required': True
         },
-
-        'sales': {
+        'category': {
+            'type': 'string',
+            'required': True
+        },
+        'estimated_sales': {
             'type': 'integer'
         }
     }}
 
 
 DOMAIN = {
-    'predictions': predictions
+    'estimations': estimations
 }
