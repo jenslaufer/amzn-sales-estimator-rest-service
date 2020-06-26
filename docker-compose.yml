@@ -1,27 +1,28 @@
 version: "3.7"
 
 services:
-  sales-predictor:
-    image: sales-predictor:latest
+  sales-estimator-backend:
+    image: sales-estimator-backend:latest
+    container_name: sales-estimator-backend
     ports:
       - 5000:5000
     depends_on: 
-        - predictor-db
+        - sales-estimator-db
     environment: 
-      - MONGO_URI=mongodb://predictor-db/predictions
+      - MONGO_URI=mongodb://sales-estimator-db/estimations
     build: .
   
-  portainer-predictor:
+  sales-estimator-portainer:
     image: portainer/portainer:latest
-    container_name: portainer-predictor
+    container_name: sales-estimator-portainer
     ports:
       - 9000:9000
     volumes:
       - /etc/localtime:/etc/localtime
       - /var/run/docker.sock:/var/run/docker.sock:ro
 
-  predictor-db:
+  sales-estimator-db:
     image: mongo:4.0
-    container_name: predictor-db
+    container_name: sales-estimator-db
     ports:
       - 27017

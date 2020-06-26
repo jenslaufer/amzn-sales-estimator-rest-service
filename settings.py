@@ -3,7 +3,7 @@
 import os
 import pymongo
 
-MONGO_URI = os.environ.get("MONGO_URI", 'mongodb://localhost/prediction')
+MONGO_URI = os.environ.get("MONGO_URI", 'mongodb://localhost/estimation')
 
 
 RESOURCE_METHODS = ['GET', 'POST']
